@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armen Afyan Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" onclick="showContent('about')">A</a>
+        <a href="#" onclick="showContent('portfolio')">P</a>
+        <a href="#" onclick="showContent('resume')">R</a>
+    </div>
+
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <img src="profile.jpg" alt="Armen Afyan">
+            <h1>Armen Afyan</h1>
+            <p>BI Analyst and Data Scientist</p>
+            <div class="social-icons">
+                <a href="mailto:armen.afyann@gmail.com">Email</a>
+                <a href="https://linkedin.com/in/armenafyan">LinkedIn</a>
+            </div>
+            <a href="#" class="download-btn">Download CV</a>
+        </div>
+
+        <!-- Dynamic Content Section -->
+        <div class="dynamic-section" id="dynamic-section">
+            <!-- Content dynamically injected here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
