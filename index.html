@@ -5,30 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Armen Afyan Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="navbar">
-        <a href="#" onclick="showContent('about')">A</a>
-        <a href="#" onclick="showContent('portfolio')">P</a>
-        <a href="#" onclick="showContent('resume')">R</a>
+        <a href="#" onclick="showContent('about')" title="About Me">
+            <i class="fas fa-user"></i>
+        </a>
+        <a href="#" onclick="showContent('portfolio')" title="Portfolio">
+            <i class="fas fa-briefcase"></i>
+        </a>
+        <a href="#" onclick="showContent('resume')" title="Resume">
+            <i class="fas fa-file-alt"></i>
+        </a>
     </div>
 
     <div class="container">
-        <!-- Profile Section -->
         <div class="profile-section">
             <img src="profile.jpg" alt="Armen Afyan">
             <h1>Armen Afyan</h1>
             <p>BI Analyst and Data Scientist</p>
             <div class="social-icons">
-                <a href="mailto:armen.afyann@gmail.com">Email</a>
-                <a href="https://linkedin.com/in/armenafyan">LinkedIn</a>
+                <a href="mailto:armen.afyann@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com/in/armenafyan" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/armenafyan" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
-            <a href="#" class="download-btn">Download CV</a>
+            <a href="Afyan_CV.pdf" class="download-btn">Download CV</a>
         </div>
 
-        <!-- Dynamic Content Section -->
         <div class="dynamic-section" id="dynamic-section">
             <!-- Content dynamically injected here -->
+        </div>
+    </div>
+
+    <!-- Modal for project details -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-image"></div>
+            <div id="modal-info">
+                <h3 id="modal-title"></h3>
+                <p id="modal-description"></p>
+                <div id="modal-technologies"></div>
+            </div>
         </div>
     </div>
 

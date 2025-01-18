@@ -6,24 +6,51 @@ const projects = [
         title: "Marketing Analytics Dashboard",
         images: ["newplot.png"], // Add multiple images
         description: "An interactive platform for analyzing and optimizing marketing performance through visualizations, predictive modeling, and data-driven insights.",
-        category: "Analytics",
+        category: "Python",
         link: "https://afyanag-marketing-marketing-p6q3yb.streamlit.app/"
     },
     {
         title: "Social Media Sentiment Analysis Dashboard",
         images: ["sent.png"], // Add multiple images
         description: "A comprehensive dashboard for analyzing social media data, including sentiment distribution, engagement metrics, and trend analysis.",
-        category: "Sentiment Analysis",
+        category: "Python",
         link: "https://gtsfzvpcmzkzzzx3bt5euy.streamlit.app/"
     },
     {
         title: "E-Commerce Sales Analysis Dashboard",
         images: ["pro.png"], // Add multiple images
         description: "An insightful dashboard for analyzing e-commerce performance, including KPIs, customer segmentation, seasonal trends, and category-wise sales.",
-        category: "E-Commerce",
+        category: "Python",
         link: "https://commerce-8hytdkmklawl7o2929oxwi.streamlit.app/"
     },
-    // Add more projects here if needed
+    {
+        title: "Sales Analytics Dashboard",
+        images: ["1.png"],
+        description: "An interactive dashboard for analyzing sales trends, profit, and customer insights over time.",
+        category: "Power BI",
+        link: "" // Leave blank if no link
+    },
+    {
+        title: "Issue Tracking Dashboard",
+        images: ["2.png"],
+        description: "A Power BI dashboard to monitor and manage issues with detailed SLA metrics.",
+        category: "Power BI",
+        link: ""
+    },
+    {
+        title: "Customer Insights Dashboard",
+        images: ["4.png"],
+        description: "A comprehensive dashboard showcasing customer segmentation and performance metrics.",
+        category: "Power BI",
+        link: ""
+    },
+    {
+        title: "Monthly Sales Trends",
+        images: ["5.png"],
+        description: "Dashboard analyzing monthly sales trends, top-selling products, and revenue insights.",
+        category: "Power BI",
+        link: ""
+    }
 ];
 
 // Render portfolio with optional filter
@@ -37,14 +64,13 @@ function renderPortfolio(filter = "All") {
         <h2>Portfolio</h2>
         <div class="filters">
             <button onclick="renderPortfolio('All')">All</button>
-            <button onclick="renderPortfolio('Analytics')">Analytics</button>
-            <button onclick="renderPortfolio('Sentiment Analysis')">Sentiment Analysis</button>
-            <button onclick="renderPortfolio('E-Commerce')">E-Commerce</button>
+            <button onclick="renderPortfolio('Python')">Python</button>
+            <button onclick="renderPortfolio('Power BI')">Power BI</button>
         </div>
         <div class="portfolio">
             ${filteredProjects
                 .map(
-                    project => `
+                    (project, index) => `
                 <div class="portfolio-item">
                     <div class="slider-container">
                         <div class="slider">
@@ -57,10 +83,12 @@ function renderPortfolio(filter = "All") {
                     </div>
                     <div class="content">
                         <h3>${project.title}</h3>
-                        <div class="scrollable-content">
-                            <p>${project.description}</p>
-                        </div>
-                        <a href="${project.link}" target="_blank">View Project</a>
+                        <p>${project.description}</p>
+                        <a href="#" onclick="${
+                            project.link
+                                ? `window.open('${project.link}', '_blank')`
+                                : `openModal(projects[${index}])`
+                        }">View Project</a>
                     </div>
                 </div>
             `
@@ -68,6 +96,30 @@ function renderPortfolio(filter = "All") {
                 .join("")}
         </div>
     `;
+}
+
+// Open modal for projects without links
+function openModal(project) {
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalTechnologies = document.getElementById('modal-technologies');
+    const modalImage = document.getElementById('modal-image');
+
+    modalTitle.textContent = project.title;
+    modalDescription.textContent = project.description;
+    modalTechnologies.innerHTML = `<strong>Category:</strong> ${project.category}`;
+    modalImage.innerHTML = project.images
+        .map(image => `<img src="${image}" alt="${project.title}" style="max-width: 100%; height: auto;">`)
+        .join("");
+
+    modal.style.display = 'block';
+}
+
+// Close modal
+function closeModal() {
+    const modal = document.getElementById('project-modal');
+    modal.style.display = 'none';
 }
 
 // Show specific section
@@ -94,7 +146,6 @@ function showContent(section) {
                         <p>Yerevan State University, 2018</p>
                     </div>
                 </div>
-
                 <h3>Experience</h3>
                 <div class="timeline">
                     <div class="timeline-item">
@@ -110,7 +161,6 @@ function showContent(section) {
                         <p>Central Bank of Armenia (November 2021 – April 2022)</p>
                     </div>
                 </div>
-
                 <h3>Skills</h3>
                 <div class="skills">
                     <div class="skill">
