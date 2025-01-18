@@ -157,8 +157,22 @@ body {
   padding: 10px;
   border-radius: 15px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+ 
 }
-
+.navbar a:hover::after {
+  content: attr(title); /* Display the title attribute */
+  position: absolute;
+  bottom: -30px; /* Position below the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1c3b4d;
+  color: #aad1e6;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
 .navbar a {
   text-decoration: none;
   background: #1c3b4d;
@@ -358,5 +372,113 @@ body {
   text-decoration: underline;
 }
 
+/* Custom scrollbar styling for horizontal scrolling */
+.portfolio {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #ff4c60 #1c3b4d; /* Thumb and track colors */
+}
+
+.portfolio::-webkit-scrollbar {
+  height: 8px; /* Height of horizontal scrollbar */
+}
+
+.portfolio::-webkit-scrollbar-thumb {
+  background-color: #ff4c60; /* Thumb color */
+  border-radius: 4px;
+}
+
+.portfolio::-webkit-scrollbar-thumb:hover {
+  background-color: #ff6b6b; /* Thumb hover color */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px; /* Space between icons */
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: #aad1e6; /* Icon color */
+  font-size: 20px; /* Icon size */
+  transition: color 0.3s, transform 0.3s;
+  position: relative; /* For tooltips */
+}
+
+.social-icons a:hover {
+  color: #ff4c60; /* Change color on hover */
+  transform: scale(1.2); /* Slight zoom effect */
+}
+
+.social-icons a:hover::after {
+  content: attr(title); /* Tooltip text from title attribute */
+  position: absolute;
+  bottom: -30px; /* Position below icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1c3b4d; /* Background color for tooltip */
+  color: #aad1e6; /* Tooltip text color */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.social-icons a:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #1c3b4d;
+  margin: 10% auto; 
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close {
+  color: #fff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #ff4c60;
+}
+
+#modal-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 
 
