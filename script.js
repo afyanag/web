@@ -3,6 +3,13 @@ const dynamicSection = document.getElementById('dynamic-section');
 // Projects data for portfolio
 const projects = [
     {
+        title: "dvanced AI Stock Prediction System",
+        images: ["plot.png"], // Add multiple images
+        description: "Combining Wavelet Denoising, LSTM Neural Networks, and Prophet Forecasting",
+        category: "Python",
+        link: "https://afyanarmenai.streamlit.app/"
+    },
+    {
         title: "Marketing Analytics Dashboard",
         images: ["newplot.png"], // Add multiple images
         description: "An interactive platform for analyzing and optimizing marketing performance through visualizations, predictive modeling, and data-driven insights.",
